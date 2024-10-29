@@ -1,4 +1,8 @@
 # myStudy
+
 for learning JavaScript
 
-**　このリポジトリはJavaScriptについて勉強した物の保存用です。 **
+**　このリポジトリは JavaScript について勉強した物の保存用です。 **
+
+20241029
+GitHub Desktop のテストで更新
