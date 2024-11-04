@@ -2,7 +2,6 @@ import { useState, useCallback } from 'react';
 import './App.css';
 import { ChildArea } from './ChildArea';
 import { InlineStyle } from './components/InlineStyle';
-import { CssModules } from './components/CssModules';
 import { StyledJsx } from './components/StyledJsx';
 
 function App() {
