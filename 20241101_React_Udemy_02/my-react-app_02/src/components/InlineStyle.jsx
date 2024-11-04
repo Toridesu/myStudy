@@ -1,3 +1,5 @@
+// ReactデフォルトのCSS記載方法
+
 export const InlineStyle = () => {
   const containerStyle = {
     border: 'solid 2px #392eff',
