@@ -6,7 +6,7 @@ export const Practice1 = () => {
   const [taxRate, setTaxRate] = useState<number>(0);
 
   const calcTotalFee = (num: number) => {
-    const calculatedTotal = num * (1 + taxRate / 100);
+    const calculatedTotal: number = num * (1 + taxRate / 100);
     setTotal(calculatedTotal);
   };
   const onclickPractice = () => calcTotalFee(inputValue);

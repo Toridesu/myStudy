@@ -3,6 +3,7 @@
  npm install
  npx create-react-app my-app
  npm create vite@latest
+ npx create-react-app my-app --template typescript
 
 - **2024/11/01**:Udemy 開始。(React の基本について)
 - **2024/11/01**:レンダリングの仕組みと最適化について学習。
@@ -16,4 +17,5 @@
 - **2024/11/13**:JSONPlaceholderからaxiosでデータを取得。
   ・TypeScriptの学習開始。
   ・Viteを使用してみた。TypeScriptの環境構築
+  ・少し触っただけの所感、所々で型の指定をするのが大事。たしかに読むのも分かりやすいし、エラーにもすぐ気づけると感じた。
 
