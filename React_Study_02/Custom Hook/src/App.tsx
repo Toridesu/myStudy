@@ -1,18 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { UserCard } from './components/UserCard';
-
-const user = {
-  id: 1,
-  name: "とりもと",
-  email: "12345@567.com",
-  address: "ADDRESS"
-}
+import axios from 'axios';
+import { User } from './types/api/user';
+import { UserProfile } from './types/userProfile';
 
 function App() {
+  const [userProfile, setUserProfile] = useState<Array<UserProfile>>();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  const onClickFetchUser = () => {
+    setLoading(true);
+    setError(false);
+
+    axios
+      .get<Array<User>>('https://jsonplaceholder.typicode.com/users')
+      .then((res) => {
+        const data = res.data.map((user) => ({
+          id: user.id,
+          name: `${user.name}(${user.username})`,
+          email: user.email,
+          address: `${user.address.city}${user.address.suite}${user.address.street}`,
+        }));
+        setUserProfile(data);
+      })
+      .catch(() => {
+        setError(true);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
   return (
-    <div className="App">
-      <UserCard user={user}/>
+    <div className='App'>
+      <button onClick={onClickFetchUser}>データ取得</button>
+      <br />
+      {error ? (
+        <p style={{ color: 'red' }}>データの取得に失敗しました</p>
+      ) : loading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {userProfile?.map((user) => (
+            <UserCard key={user.id} user={user} />
+          ))}
+        </>
+      )}
     </div>
   );
 }
